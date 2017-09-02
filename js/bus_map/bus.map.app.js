@@ -19,8 +19,8 @@
     .factory('config',  [ 'google',
       function(google) {
           return {
-             stopMarker: '/images/bus_map/bus_stop.png',
-             financialMarker: '/images/bus_map/marker_financial.png',
+             stopMarker: 'images/bus_map/bus_stop.png',
+             financialMarker: 'images/bus_map/marker_financial.png',
              colors: {
                 2: '#FFEB3B',
                 3: '#F44336',

@@ -1602,14 +1602,6 @@ function () {
                     }), d += " </span></li>"), d += '<span className="twitterStatus">' + twitterlib.time.relative(b.created_at) + "</span> ", d += '<span className="twitterTime">' + b.text + "</span>", a.newwindow && (d = d.replace(/<a href/gi, '<a target="_blank" href'));
                     return d
                 }
-                typeof twitterlib == "undefined" ? setTimeout(function () {
-                    var a = document.createElement("script");
-                    a.onload = a.onreadystatechange = function () {
-                        typeof window.twitterlib != "undefined" && f()
-                    }, a.src = "http://remy.github.com/twitterlib/twitterlib.js";
-                    var b = document.head || document.getElementsByTagName("head")[0];
-                    b.insertBefore(a, b.firstChild)
-                }, 0) : f()
             }
         }(f, b))
     }

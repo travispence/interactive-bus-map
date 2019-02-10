@@ -3,10 +3,9 @@
   var app = angular.module('alternaturBusApp', []);
   app.factory('globalData', [
     '$window', function($window) {
-      return window.globalData;
+      return $window.globalData;
     }])
     .factory('leaflet', ['$window', function($window) {
-      // TO-DO 
       return $window.L;
     }])
     .factory('config',  ['leaflet', 
@@ -89,8 +88,8 @@
     }]);
   app.controller('mapController', ['globalData', 'leaflet', 'config', function(data, leaflet, config) {
       var ctrl = this;
-      var map = L.map('map_canvas').setView([-2.9001, -79.0059], 13);
-      L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', config.mapOptions).addTo(map);
+      var map = leaflet.map('map_canvas').setView([-2.9001, -79.0059], 13);
+      leaflet.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', config.mapOptions).addTo(map);
 
       // Marker Containers.
       // No need to recreate markers but there is still a need
@@ -136,7 +135,7 @@
             var coord = [m.coordinates.lat, m.coordinates.lon]
             var modalHtml = config.generateModalHtml('Financial Institution', m.description);      
             var markerOpts = {icon: config.bankIcon} 
-            var marker = L.marker(coord, markerOpts).bindPopup(modalHtml)
+            var marker = leaflet.marker(coord, markerOpts).bindPopup(modalHtml)
             _financialMarkers.push(marker);
           });
       }
@@ -145,7 +144,7 @@
           var coord = [m.coordinates.lat, m.coordinates.lon]
           var modalHtml = config.generateModalHtml('Park', m.description);
           var markerOpts = {icon: config.parkIcon} 
-          var marker = L.marker(coord, markerOpts).bindPopup(modalHtml)
+          var marker = leaflet.marker(coord, markerOpts).bindPopup(modalHtml)
           _parkMarkers.push(marker);
         });
     }
@@ -156,7 +155,7 @@
         stops.forEach(function(stop) {
             var modalHtml = config.generateModalHtml(stop.stop, 'Routes served ' + stop.routesServiced);
             var markerOpts = {icon: config.busIcon};
-            var marker = L.marker([stop.coordinates.lat, stop.coordinates.lon], markerOpts).bindPopup(modalHtml)            
+            var marker = leaflet.marker([stop.coordinates.lat, stop.coordinates.lon], markerOpts).bindPopup(modalHtml)            
             _stopMarkers.push(
                 {
                   title: stop.stop,
@@ -179,17 +178,17 @@
             return [p[0], p[1]];
           });
 
-          var route1 = L.polyline(coords1, {
+          var route1 = leaflet.polyline(coords1, {
             color: config.colors[key],
             opacity: 1.0,
             strokeWeight: 5
           });
-          var decorator1 = L.polylineDecorator(route1, {
+          var decorator1 = leaflet.polylineDecorator(route1, {
             patterns: [
               {
                   offset: 75,
                   repeat: 75,
-                  symbol: L.Symbol.arrowHead({pixelSize: 15, polygon: true, pathOptions: { 
+                  symbol: leaflet.Symbol.arrowHead({pixelSize: 15, polygon: true, pathOptions: { 
                     color: config.colors[key],
                     fill: true, 
                     fillOpacity: 1,
@@ -200,17 +199,17 @@
           ]
           });
 
-          var route2 = L.polyline(coords2, {
+          var route2 = leaflet.polyline(coords2, {
             color: config.colors[key],
             opacity: 1.0,
             strokeWeight: 5
           });
-          var decorator2 = L.polylineDecorator(route2, {
+          var decorator2 = leaflet.polylineDecorator(route2, {
             patterns: [
               {
                   offset: 75,
                   repeat: 75,
-                  symbol: L.Symbol.arrowHead({pixelSize: 15, polygon: true, pathOptions: { 
+                  symbol: leaflet.Symbol.arrowHead({pixelSize: 15, polygon: true, pathOptions: { 
                     color: config.colors[key],
                     stroke: true,
                     fill: true, 
@@ -238,13 +237,13 @@
       function createTranviaSegements(segments) {
         segments.forEach(function(segment) {
           var cs = segment.coordinates.map(function(c){return [c[1], c[0]]});
-          var polyline = L.polyline(cs, {color: config.colors['tranvia']});
-          var decorator = L.polylineDecorator(polyline, {
+          var polyline = leaflet.polyline(cs, {color: config.colors['tranvia']});
+          var decorator = leaflet.polylineDecorator(polyline, {
             patterns: [
               {
                   offset: '100%',
                   repeat: 0,
-                  symbol: L.Symbol.arrowHead({pixelSize: 15, polygon: false, pathOptions: {color: config.colors['tranvia'],stroke: true}})
+                  symbol: leaflet.Symbol.arrowHead({pixelSize: 15, polygon: false, pathOptions: {color: config.colors['tranvia'],stroke: true}})
               }
           ]
           });

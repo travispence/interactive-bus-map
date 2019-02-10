@@ -8,10 +8,6 @@
     <meta charset="utf-8">
     <title>Interactive Bus Map of Cuenca, Ecuador</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="images/favicon.png">
-    <link rel="apple-touch-icon" href="images/favicons/apple-touch-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="images/favicons/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="images/favicons/apple-touch-icon-114x114.png">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&amp;v1&mp;subset=latin,latin-ext" type="text/css" media="screen" id="google_font" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700&amp;v1&mp;subset=latin,latin-ext" type="text/css" media="screen" id="google_font_body" />
@@ -22,7 +18,8 @@
     <link rel="stylesheet" href="css/bus_map/main.css">
     <link rel="stylesheet" href="css/bus_map/bootstrap_responsive.min.css">
     <link rel="stylesheet" href="css/bus_map/main_responsive.css" >
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet.css">
+   
     <style type="text/css">
     html {
         height: 100%;
@@ -43,8 +40,9 @@
     <script type="text/javascript" src='js/lib/jquery.min.js'></script>
     <script type="text/javascript" src="js/lib/modernizr.min.js"></script>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuLk1qKWOvkdm51cLxOFrYecXoDix2uFo"
-    type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-polylinedecorator/1.1.0/leaflet.polylineDecorator.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-polylinedecorator/1.1.0/leaflet.polylineDecorator.min.js.map"></script>
     <script type="text/javascript" src="js/lib/angular.min.js"></script>
 
     <!-- Need to import bus.data.js before the bus.map.app.js -->
@@ -91,6 +89,11 @@
                     <div class="span3">
                         <label class="checkbox">
                             <input type="checkbox" ng-click="vm.toggleFinancial()">Show Atm / Banks
+                        </label>
+                    </div>
+                    <div class="span3">
+                        <label class="checkbox">
+                            <input type="checkbox" ng-click="vm.toggleParks()">Show Parks
                         </label>
                     </div>
                 </div>

@@ -5498,7 +5498,6 @@ section#area
 	width: 100%;
 	height: 100%;
 	z-index: -1;
-	background-image: url(/images/glare-effect.png);
 	background-repeat: no-repeat;
 	background-position: center top;
 }
@@ -5537,7 +5536,6 @@ section#area
 	left: 0;
 	width: 100%;
 	height: 20px;
-	background: url(/images/shadow-down.png) no-repeat center top;
 	opacity: 0.6;
 	filter: alpha(opacity=60);
 }

@@ -89,14 +89,6 @@
   }]);
 
 
-  var mymap = L.map('map').setView([-2.9001, -79.0059], 13);
-  L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-    tileSize: 512,
-    maxZoom: 18,
-    id: 'mapbox/streets-v11',
-    accessToken: '<?php echo the_field('mapbox_key', 'options'); ?>'
-    }).addTo(mymap);
 
   setTimeout(function () {
     document.querySelectorAll('.map-marker').forEach(function (el) {
@@ -111,7 +103,7 @@
   app.controller('mapController', ['globalData', 'leaflet', 'config', function (data, leaflet, config) {
     var ctrl = this;
     var map = leaflet.map('map_canvas').setView([-2.9001, -79.0059], 13);
-    leaflet.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', config.mapOptions).addTo(map);
+    leaflet.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', config.mapOptions).addTo(map);
 
     // Marker Containers.
     // No need to recreate markers but there is still a need

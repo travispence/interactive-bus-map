@@ -4,45 +4,52 @@
 <!--[if IE 9 ]>    <html lang="en" class="isie ie9 no-js"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!-->
 <html lang="en" class="no-js">
+
 <head>
     <meta charset="utf-8">
     <title>Interactive Bus Map of Cuenca, Ecuador</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&amp;v1&mp;subset=latin,latin-ext" type="text/css" media="screen" id="google_font" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700&amp;v1&mp;subset=latin,latin-ext" type="text/css" media="screen" id="google_font_body" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&amp;v1&mp;subset=latin,latin-ext"
+        type="text/css" media="screen" id="google_font" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700&amp;v1&mp;subset=latin,latin-ext"
+        type="text/css" media="screen" id="google_font_body" />
 
     <link rel="stylesheet" href="css/bus_map/responsive-devices.css" type="text/css" />
     <link rel="stylesheet" href="css/bus_map/template.css" type="text/css" />
     <link rel="stylesheet" href="css/bus_map/bootstrap.min.css">
     <link rel="stylesheet" href="css/bus_map/main.css">
     <link rel="stylesheet" href="css/bus_map/bootstrap_responsive.min.css">
-    <link rel="stylesheet" href="css/bus_map/main_responsive.css" >
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet.css">
-   
+    <link rel="stylesheet" href="css/bus_map/main_responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css">
+
     <style type="text/css">
-    html {
-        height: 100%;
-    }
+        html {
+            height: 100%;
+        }
 
-    body {
-        height: 100%;
-    }
+        body {
+            height: 100%;
+        }
 
-    .gm-style {
-        font-family: Roboto, Arial, sans-serif;
-        font-size: 11px;
-        font-weight: 400;
-        text-decoration: none
-    }
+        .gm-style {
+            font-family: Roboto, Arial, sans-serif;
+            font-size: 11px;
+            font-weight: 400;
+            text-decoration: none
+        }
     </style>
 
     <script type="text/javascript" src='js/lib/jquery.min.js'></script>
     <script type="text/javascript" src="js/lib/modernizr.min.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet.js" type="text/javascript"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-polylinedecorator/1.1.0/leaflet.polylineDecorator.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-polylinedecorator/1.1.0/leaflet.polylineDecorator.min.js.map"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js" type="text/javascript"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-polylinedecorator/1.1.0/leaflet.polylineDecorator.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-polylinedecorator/1.1.0/leaflet.polylineDecorator.min.js.map"></script>
     <script type="text/javascript" src="js/lib/angular.min.js"></script>
 
     <!-- Need to import bus.data.js before the bus.map.app.js -->
@@ -69,39 +76,40 @@
     </div>
     <div class="container-fluid">
         <div class="row-fluid">
-          <div class="span2">
+            <div class="span2">
 
-          </div>
-          <div class="span8" style="height:100%; paddding: 1em;">
-            <div class="well">
-                <h4> Map Options </h4>
-                <div class="row-fluid">
-                    <div class="span3">
-                        <label class="checkbox">
-                            <input type="checkbox"  ng-model="vm.showBusStops" ng-click="vm.toggleStops(vm.showBusStops)">Show Bus Stops
-                        </label>
-                    </div>
-                    <div class="span3">
-                        <label class="checkbox">
-                            <input type="checkbox" ng-click="vm.toggleTranvia()">Show Tranvia
-                        </label>
-                    </div>
-                    <div class="span3">
-                        <label class="checkbox">
-                            <input type="checkbox" ng-click="vm.toggleFinancial()">Show Atm / Banks
-                        </label>
-                    </div>
-                    <div class="span3">
-                        <label class="checkbox">
-                            <input type="checkbox" ng-click="vm.toggleParks()">Show Parks
-                        </label>
+            </div>
+            <div class="span8" style="height:100%; paddding: 1em;">
+                <div class="well">
+                    <h4> Map Options </h4>
+                    <div class="row-fluid">
+                        <div class="span3">
+                            <label class="checkbox">
+                                <input type="checkbox" ng-model="vm.showBusStops"
+                                    ng-click="vm.toggleStops(vm.showBusStops)">Show Bus Stops
+                            </label>
+                        </div>
+                        <div class="span3">
+                            <label class="checkbox">
+                                <input type="checkbox" ng-click="vm.toggleTranvia()">Show Tranvia
+                            </label>
+                        </div>
+                        <div class="span3">
+                            <label class="checkbox">
+                                <input type="checkbox" ng-click="vm.toggleFinancial()">Show Atm / Banks
+                            </label>
+                        </div>
+                        <div class="span3">
+                            <label class="checkbox">
+                                <input type="checkbox" ng-click="vm.toggleParks()">Show Parks
+                            </label>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-          </div>
-          <div class="span2">
-          </div>
+            </div>
+            <div class="span2">
+            </div>
         </div>
     </div>
     <!-- Map Container -->
@@ -115,15 +123,19 @@
                             <div class="athPush" ng-class="vm.routeClass(route)">
                                 <div class="accordion">
                                     <span ng-click="vm.clickHeaderWrapper($event, route.key)">
-                                      <h2 ng-bind="route.title"></h2>
-                                      <img id="ruta{{route.key}}" src="images/bus_map/expand.png"/>
+                                        <h2 ng-bind="route.title"></h2>
+                                        <img id="ruta{{route.key}}" src="images/bus_map/expand.png" />
                                     </span>
                                     <div class="accordion-inside">
                                         <label class="checkbox">
-                                            <input type="checkbox" ng-model="route.model1" class="ruta" ng-change="vm.toggleRoute(route.key, route.direction1, route.model1)">{{route.title}} {{route.direction1}}
+                                            <input type="checkbox" ng-model="route.model1" class="ruta"
+                                                ng-change="vm.toggleRoute(route.key, route.direction1, route.model1)">{{route.title}}
+                                            {{route.direction1}}
                                         </label>
                                         <label class="checkbox">
-                                            <input type="checkbox" class="ruta" ng-model="route.model2" ng-change="vm.toggleRoute(route.key, route.direction2, route.model2)">{{route.title}} {{route.direction2}}
+                                            <input type="checkbox" class="ruta" ng-model="route.model2"
+                                                ng-change="vm.toggleRoute(route.key, route.direction2, route.model2)">{{route.title}}
+                                            {{route.direction2}}
                                         </label>
                                     </div>
                                 </div>
@@ -144,15 +156,19 @@
                             <div class="athPush" ng-class="vm.routeClass(route)">
                                 <div class="accordion">
                                     <span ng-click="vm.clickHeaderWrapper($event, route.key)">
-                                      <h2 ng-bind="route.title"></h2>
-                                      <img src="images/bus_map/expand.png" />
+                                        <h2 ng-bind="route.title"></h2>
+                                        <img src="images/bus_map/expand.png" />
                                     </span>
 
                                     <div class="accordion-inside">
                                         <label class="checkbox">
-                                            <input type="checkbox" class="ruta" ng-model="route.model1" ng-change="vm.toggleRoute(route.key, route.direction1, route.model1)">{{route.title}} {{route.direction1}} - </label>
+                                            <input type="checkbox" class="ruta" ng-model="route.model1"
+                                                ng-change="vm.toggleRoute(route.key, route.direction1, route.model1)">{{route.title}}
+                                            {{route.direction1}} - </label>
                                         <label class="checkbox">
-                                            <input type="checkbox" class="ruta" ng-model="route.model2" ng-change="vm.toggleRoute(route.key, route.direction2, route.model2)">{{route.title}} {{route.direction2}}
+                                            <input type="checkbox" class="ruta" ng-model="route.model2"
+                                                ng-change="vm.toggleRoute(route.key, route.direction2, route.model2)">{{route.title}}
+                                            {{route.direction2}}
                                         </label>
                                     </div>
                                 </div>
@@ -163,7 +179,8 @@
             </div>
         </div>
     </div>
-    <br/>
+    <br />
     </div>
 </body>
+
 </html>

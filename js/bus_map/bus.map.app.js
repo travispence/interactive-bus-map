@@ -37,7 +37,7 @@
             tileSize: 512,
             maxZoom: 18,
             id: 'mapbox/streets-v11',
-            accessToken: 'pk.eyJ1IjoidGhlZ3JpbmdvbG9jbyIsImEiOiJja3dtb3ZmdTUyZGZ4MnBtdTBpM3d2dnY4In0.RZqv39gktisOEy2LLfjOXA'
+            accessToken: 'pk.eyJ1IjoidGhlZ3JpbmdvbG9jbyIsImEiOiJja3dtcTRkNW4wMnB6MnJvNmdmc3VvN2l0In0.aKpOFRoWut6aARGKwoBKMA'
           },
           routeWeight: 7,
           routeOpacity: 0.75,

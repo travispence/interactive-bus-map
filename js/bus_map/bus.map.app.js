@@ -110,7 +110,7 @@
       if (layer.feature.geometry.type === 'LineString') {
         console.log(layer);
         layer.setStyle({
-          color: #FF0000,
+          color: '#FF0000',
           weight: 4,
           opacity: 0.75
         });

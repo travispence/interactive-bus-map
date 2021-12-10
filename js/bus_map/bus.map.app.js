@@ -115,6 +115,7 @@
           weight: 4,
           opacity: 0.75
         });
+        map.fitBounds(layer);
       } else {
         console.log('unknown geometry type');
       }

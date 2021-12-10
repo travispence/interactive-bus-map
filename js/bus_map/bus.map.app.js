@@ -36,6 +36,7 @@
             attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
             tileSize: 512,
             maxZoom: 18,
+            zoomOffset: -1,
             id: 'mapbox/streets-v11',
             accessToken: 'pk.eyJ1IjoidGhlZ3JpbmdvbG9jbyIsImEiOiJja3dtcTRkNW4wMnB6MnJvNmdmc3VvN2l0In0.aKpOFRoWut6aARGKwoBKMA'
           },
@@ -428,6 +429,5 @@ setTimeout(function () {
     var coord = [parseFloat(el.dataset.lat), parseFloat(el.dataset.lon)];
     L.marker(coord).addTo(mymap)
   });
-
 }, 100);
 
